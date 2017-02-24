@@ -9,8 +9,7 @@ setup(name='python_graphql_subscriptions',
       license='MIT',
       packages=['python_graphql_subscriptions'],
       install_requires=[
-          pyee,
-          graphql,
-          graphql.language.ast,
+          'pyee',
+          'graphql-core',
       ],
       zip_safe=False)
