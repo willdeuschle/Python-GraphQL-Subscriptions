@@ -1,6 +1,9 @@
 # Compiled Python
 *.pyc
 
+# python rc
+.pypirc
+
 # Setuptools distro
 /dist/
 
