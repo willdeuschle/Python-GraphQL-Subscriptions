@@ -12,4 +12,10 @@ setup(name='python_graphql_subscriptions',
           'pyee',
           'graphql-core',
       ],
+      setup_requires=[
+          'pytest-runner',
+      ],
+      tests_require=[
+          'pytest',
+      ],
       zip_safe=False)
