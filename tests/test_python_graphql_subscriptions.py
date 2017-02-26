@@ -131,7 +131,7 @@ def test_SubscriptionManager_subscribes_with_valid_query(pubsub):
 def test_SubscriptionManager_filters_properly(pubsub):
     schema = Schema
     setup_functions = {
-        'test_filter_sub': lambda options, context, variables: {
+        'test_filter_sub': lambda options, args, subscription_name: {
             'filter_1': {
                 'filter': lambda root, context, **variables: root['filter_bool'] == variables['filter_bool']
 
@@ -159,7 +159,7 @@ def test_SubscriptionManager_subscribes_multiple_triggers(pubsub):
     called = [0]
     schema = Schema
     setup_functions = {
-        'test_filter_sub': lambda options, context, variables: {
+        'test_filter_sub': lambda options, args, subscription_name: {
             'sub_1': {},
             'sub_2': {}
         }
@@ -190,7 +190,7 @@ def test_SubscriptionManager_can_unsubscribe(pubsub):
     called = [0]
     schema = Schema
     setup_functions = {
-        'test_filter_sub': lambda options, context, variables: {
+        'test_filter_sub': lambda options, args, subscription_name: {
             'sub_1': {},
         }
     }
@@ -245,7 +245,7 @@ def test_SubscriptionManager_errors_on_repeat_unsubscribe(pubsub):
 def test_SubscriptionManager_calls_context_if_a_function(pubsub):
     schema = Schema
     setup_functions = {
-        'test_filter_sub': lambda options, context, variables: {
+        'test_filter_sub': lambda options, args, subscription_name: {
             'sub_1': {},
         }
     }
