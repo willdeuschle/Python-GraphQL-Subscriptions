@@ -41,10 +41,10 @@ base_params = {
 # subscribe returns subscription id
 subscription_id = subscription_manager.subscribe(**base_params)
 
-# publishing
+# publish
 # publish(trigger, payload) - invokes the callback from the base_params
 subscription_manager.publish('subscription_trigger', payload)
 
-# unsubscribing
+# unsubscribe
 subscription_manager.unsubscribe(subscription_id)
 ```
