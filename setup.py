@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='python_graphql_subscriptions',
       version='0.1',
-      description='SubscriptionManager for GraphQL with python backends',
+      description='SubscriptionManager for GraphQL with python backend',
       url='https://github.com/willdeuschle/Python-GraphQL-Subscriptions',
       author='Will Deuschle',
       author_email='wjdeuschle@gmail.com',

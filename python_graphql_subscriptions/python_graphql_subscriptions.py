@@ -107,10 +107,10 @@ class SubscriptionManager(object):
                 fields = self.schema.get_subscription_type().fields
                 for arg in root_field.arguments:
                     # access argument's definition from the schema
-                    # filter for the correct argument
-                    arg_definition = list(filter(lambda argDef: argDef.name == arg.name.value, fields[subscription_name].args))[0]
+                    arg_definition = fields[subscription_name].args.get(arg.name.value, None)
                     # parse the variable value and add it to our args
-                    args[arg_definition.name] = value_from_ast(arg.value, arg_definition.type, kwargs['variables'])
+                    if arg_definition:
+                        args[arg.name.value] = value_from_ast(arg.value, arg_definition.type, kwargs['variables'])
 
         # see if the channel we are trying to subscribe to was declared
         # in the setup_functions and do some prep if it was
