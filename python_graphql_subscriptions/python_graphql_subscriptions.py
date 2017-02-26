@@ -81,7 +81,7 @@ class SubscriptionManager(object):
         """
         # first validate the query, operation_name, variables
         parsed_query = parse(kwargs['query'])
-        # TODO also specify that the subscription only has a single root field
+        # TODO enforce that the subscription only has a single root field
         errors = validate(
             self.schema,
             parsed_query,
@@ -147,11 +147,9 @@ class SubscriptionManager(object):
                 else:
                     context = kwargs['context']
                 # eval the filter function to see how we should proceed
-                # TODO decide if even useful to have context? or good to have both context and variables
                 do_execute = filter_func(root_value, context, **kwargs['variables'])
                 if not do_execute:
                     return
-                # is this async like in js? - no I don't think so
                 try:
                     data = execute(self.schema,
                                    parsed_query,
