@@ -9,14 +9,8 @@ from python_graphql_subscriptions import PubSub, SubscriptionManager
 
 pubsub = PubSub()
 
-# provide setup_function for each supported subscription
-setup_functions = {
-  'subscription_field': lambda options, args, subscription_name: {
-    'subscription_trigger': {
-      'filter': lambda root, context, **variables: root['filter_bool'] == variables['filter_bool']
-    },
-  }
-}
+# provide setup_functions for subscriptions if desired
+setup_functions = {}
 
 # instantiate SubscriptionManager with your schema, pubsub engine, and setup_functions
 subscription_manager = SubscriptionManager(schema, pubsub, setup_functions)
