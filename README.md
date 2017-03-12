@@ -1,5 +1,5 @@
 # Python-GraphQL-Subscriptions
-Adds support for subscriptions to GraphQL applications using a Python backend.
+Adds subscription support to GraphQL applications that use a Python backend.
 
 ## Usage
 Use `PubSub` and `SubscriptionManager` from `python_graphql_subscriptions`
